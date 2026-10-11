@@ -1,0 +1,264 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+p {
+    color: #ccc;
+    font-size: 18px;
+}
+
+button {
+    background: #e5b95c;
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 25px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ffd778;
+}
+
+#surprise img {
+    width: 100%;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Плавное появление поздравления */
+#surprise {
+    animation: reveal 0.7s ease-out;
+}
+
+/* Мем немного увеличивается */
+#surprise img {
+    animation: meme-pop 0.8s ease-out;
+    box-shadow: 0 0 30px rgba(229, 185, 92, 0.2);
+}
+
+/* Анимация заголовка */
+#surprise h1 {
+    animation: text-appear 1s ease-out;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes meme-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.6) rotate(-5deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes text-appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Подарочная коробка */
+.gift {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 45px auto 15px;
+    cursor: pointer;
+    outline-offset: 8px;
+}
+
+.gift-box {
+    position: absolute;
+    width: 130px;
+    height: 95px;
+    left: 10px;
+    bottom: 0;
+    background: #c62828;
+    border-radius: 5px 5px 10px 10px;
+    box-shadow: 0 12px 25px #0008;
+}
+
+.gift-box::after {
+    content: "";
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background: #f5c451;
+}
+
+.gift-lid {
+    position: absolute;
+    z-index: 2;
+    width: 150px;
+    height: 30px;
+    top: 35px;
+    left: 0;
+    background: #e53935;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px #0005;
+}
+
+.gift-lid::after {
+    content: "";
+    position: absolute;
+    left: 60px;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    background: #f5c451;
+    z-index: 3;
+}
+
+.gift-lid::before {
+    content: "";
+    position: absolute;
+    width: 35px;
+    height: 25px;
+    left: 57px;
+    top: -23px;
+    border: 7px solid #f5c451;
+    border-radius: 50% 50% 0 50%;
+    transform: rotate(-25deg);
+}
+
+.gift-hint {
+    color: #f5c451;
+    font-size: 13px;
+    letter-spacing: 3px;
+    animation: hint-pulse 1.5s infinite;
+}
+
+@keyframes hint-pulse {
+    50% { opacity: 0.45; }
+}
+
+/* Открытие крышки */
+.gift.opened .gift-lid {
+    animation: lid-open 0.7s forwards;
+}
+
+@keyframes lid-open {
+    to {
+        transform: translateY(-80px) rotate(-20deg);
+    }
+}
+
+.prank-hint {
+    margin-top: 70px;
+    padding: 25px 10px;
+    border-top: 1px solid #444;
+}
+
+.prank-hint h2 {
+    font-size: 24px;
+    color: #f5c451;
+}
+
+.prank-hint p {
+    color: #aaa;
+}
+
+.scroll-arrow {
+    font-size: 38px;
+    color: #f5c451;
+    animation: hint-pulse 1s infinite;
+}
+
+.second-meme {
+    margin-top: 120px;
+    padding-bottom: 100px;
+}
+
+.second-meme h2 {
+    color: #ff5252;
+}
+
+.second-meme img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.second-meme p {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.scroll-trap {
+    width: 100%;
+}
+
+.trap-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    border-top: 1px solid #333;
+}
+
+.trap-page h2 {
+    color: #f5c451;
+    font-size: 26px;
+}
+
+.trap-page p {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.trap-page span {
+    margin-top: 30px;
+    font-size: 40px;
+    color: #f5c451;
+    animation: hint-pulse 1s infinite;
+}
